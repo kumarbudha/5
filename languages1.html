@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Language Translator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .container {
+            text-align: center;
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 100%;
+        }
+        select, textarea {
+            width: 100%;
+            padding: 8px 12px;
+            font-size: 16px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            margin-bottom: 1rem;
+            box-sizing: border-box;
+        }
+        textarea {
+            height: 100px;
+            resize: vertical;
+        }
+        #translatedText {
+            font-size: 18px;
+            margin-top: 1rem;
+            text-align: left;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Multi-Language Translator</h1>
+        <select id="languageSelector"></select>
+        <textarea id="inputText" placeholder="Enter text to translate"></textarea>
+        <div id="translatedText"></div>
+    </div>
+
+    <script>
+        const translations = {
+            en: {
+                title: 'Multi-Language Translator',
+                placeholder: 'Enter text to translate',
+                selectLanguage: 'Select Language'
+            },
+            hi: {
+                title: '???-???? ???????',
+                placeholder: '?????? ???? ?? ??? ??????? ???? ????',
+                selectLanguage: '???? ?????'
+            },
+            bn: {
+                title: '??? ???? ???????',
+                placeholder: '?????? ???? ????? ?????? ?????',
+                selectLanguage: '???? ???????? ????'
+            },
+            ta: {
+                title: '?? ???? ????????????????',
+                placeholder: '???????????? ????? ??????????',
+                selectLanguage: '???????? ?????????????????'
+            },
+            te: {
+                title: '??????? ??????????',
+                placeholder: '?????????????? ???????? ????? ??????',
+                selectLanguage: '????? ?????????'
+            },
+            ml: {
+                title: '??????? ?????????',
+                placeholder: '????????? ??????? ?????????? ?????',
+                selectLanguage: '??? ??????????????'
+            },
+            kn: {
+                title: '??????? ???????',
+                placeholder: '?????????? ????????? ???????',
+                selectLanguage: '????????? ?????????'
+            }
+        };
+
+        const languages = [
+            { code: 'en', name: 'English' },
+            { code: 'hi', name: '?????? (Hindi)' },
+            { code: 'bn', name: '????? (Bengali)' },
+            { code: 'ta', name: '????? (Tamil)' },
+            { code: 'te', name: '?????? (Telugu)' },
+            { code: 'ml', name: '?????? (Malayalam)' },
+            { code: 'kn', name: '????? (Kannada)' }
+        ];
+
+        const languageSelector = document.getElementById('languageSelector');
+        const inputText = document.getElementById('inputText');
+        const translatedText = document.getElementById('translatedText');
+        const title = document.querySelector('h1');
+
+        function populateLanguageSelector() {
+            languages.forEach(lang => {
+                const option = document.createElement('option');
+                option.value = lang.code;
+                option.textContent = lang.name;
+                languageSelector.appendChild(option);
+            });
+        }
+
+        function updateTranslation() {
+            const selectedLanguage = languageSelector.value;
+            title.textContent = translations[selectedLanguage].title;
+            inputText.placeholder = translations[selectedLanguage].placeholder;
+            languageSelector.title = translations[selectedLanguage].selectLanguage;
+            
+            // Simulated translation (replace this with actual translation logic)
+            translatedText.textContent = `Translated to ${languages.find(lang => lang.code === selectedLanguage).name}:\n${inputText.value}`;
+        }
+
+        populateLanguageSelector();
+        languageSelector.addEventListener('change', updateTranslation);
+        inputText.addEventListener('input', updateTranslation);
+        updateTranslation();
+    </script>
+</body>
+</html>

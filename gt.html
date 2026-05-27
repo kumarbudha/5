@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beautiful Google Translator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #4a4a4a;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        #google_translate_element {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+        .goog-te-gadget {
+            font-family: 'Poppins', sans-serif !important;
+        }
+        .goog-te-gadget-simple {
+            background-color: #fff !important;
+            border: none !important;
+            padding: 10px !important;
+            border-radius: 5px !important;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1) !important;
+            transition: all 0.3s ease !important;
+        }
+        .goog-te-gadget-simple:hover {
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1) !important;
+        }
+        .goog-te-menu-value {
+            color: #4a4a4a !important;
+            font-weight: 500 !important;
+        }
+        .goog-te-menu-value span {
+            color: #4285f4 !important;
+        }
+        .goog-te-menu-value:hover {
+            text-decoration: none !important;
+        }
+        .goog-te-banner-frame {
+            display: none !important;
+        }
+        .content {
+            line-height: 1.6;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in {
+            animation: fadeIn 0.5s ease-out;
+        }
+		 
+  .goog-te-gadget {
+    color: transparent!important;
+    font-size:0px;
+  }
+  .goog-text-highlight {
+    background: none !important;
+    box-shadow: none !important;
+  }
+  #google_translate_element select{
+    background:#2b1a12;
+    color:#fff4e4;
+    border: none;
+    font-weight:bold;
+    border-radius:3px;
+    padding:8px 12px
+  }
+
+        
+    </style>
+</head>
+<body>
+  <div id="google_translate_element"></div>
+    <div class="container fade-in">
+        <h1>Beautiful Google Translator</h1>
+       <script type="text/javascript">
+//<![CDATA[
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({
+    pageLanguage: 'de', includedLanguages: 'en,it,fr,ru,tr', autoDisplay: false,
+    layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+  }, 'google_translate_element');
+}
+//]]>
+        </script> <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    </div>
+
+   
+</body>
+</html>

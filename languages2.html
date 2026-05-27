@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html id="html-tag" lang="en">
+  <script>
+    //Script for multilingual support, note that detects the language from the browser and sets the html page to that one
+    const $htmlTag = document.querySelector("#html-tag")
+    switch(navigator.language.substring(0,2)) {
+      case "es":
+        $htmlTag.lang = "es"
+        $htmlTag.classList.add("spanishLang")
+        break
+      default:
+        $htmlTag.classList.add("englishLang")
+        break
+    }
+  </script>
+  <head>
+    <meta charset="utf-8">
+    <title>Test</title>
+    <style type="text/css">
+
+      body [lang=en], 
+      body [lang=es] {
+        display: none;
+      }
+
+      .spanishLang [lang=es] {
+        display: inline;
+      }
+
+      .englishLang [lang=en] {
+        display: inline;
+      }
+    </style>
+  </head>
+<body>
+    <div>
+      <span lang="en">Settings</span>
+      <span lang="es">Configuraciones</span>
+    </div>
+</body>
+</html>
